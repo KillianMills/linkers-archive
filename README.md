@@ -7,6 +7,11 @@ Usage
 - Install in editable mode: `pip install -e .`
 - Run tests: `pytest -q`
 
+Badges
+
+- CI: ![CI](https://github.com/KillianMills/linkers-archive/actions/workflows/ci.yml/badge.svg)
+- Release: ![Release](https://github.com/KillianMills/linkers-archive/actions/workflows/release.yml/badge.svg)
+
 Development
 
 - Create and activate a virtualenv:
