@@ -15,6 +15,15 @@ install: venv
 test:
 	$(PY) -m pytest -q
 
+lint:
+	$(PY) -m pip install black mypy
+	$(PY) -m black --check .
+	$(PY) -m mypy src
+
+format:
+	$(PY) -m pip install black
+	$(PY) -m black .
+
 clean:
 	rmdir /s /q $(VENV) || true
 	rmdir /s /q build dist || true
