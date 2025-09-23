@@ -9,3 +9,9 @@ Thanks for considering contributing.
 - Run format: `python -m black .`
 
 Open a PR against `main` and include tests for new behavior.
+
+Branch protection (recommended)
+
+- Require at least one review from a CODEOWNER before merging.
+- Require passing status checks: `pytest`, `mypy`, and `black`.
+- Configure these rules in the repository Settings → Branches on GitHub.
