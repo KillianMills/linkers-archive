@@ -6,10 +6,13 @@ from pathlib import Path
 
 DB_PATH = Path("data/links.db")
 
+
 def export_csv(output="links.csv"):
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    cur.execute("SELECT url, first_seen, source, message_id, author FROM links ORDER BY first_seen")
+    cur.execute(
+        "SELECT url, first_seen, source, message_id, author FROM links ORDER BY first_seen"
+    )
     rows = cur.fetchall()
     conn.close()
 
@@ -20,10 +23,13 @@ def export_csv(output="links.csv"):
 
     print(f"✅ Exported {len(rows)} links to {output}")
 
+
 def export_json(output="links.json"):
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    cur.execute("SELECT url, first_seen, source, message_id, author FROM links ORDER BY first_seen")
+    cur.execute(
+        "SELECT url, first_seen, source, message_id, author FROM links ORDER BY first_seen"
+    )
     rows = cur.fetchall()
     conn.close()
 
@@ -42,6 +48,7 @@ def export_json(output="links.json"):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Exported {len(data)} links to {output}")
+
 
 if __name__ == "__main__":
     os.makedirs("exports", exist_ok=True)

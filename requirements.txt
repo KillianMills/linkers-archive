@@ -1,3 +1,5 @@
-# Runtime requirements (if any)
-# Example:
-# requests>=2.28
+# Runtime requirements (used by collectors)
+discord.py>=2.3.0
+aiosqlite>=0.18.0
+python-dotenv>=1.0.0
+websockets>=11.0
