@@ -33,9 +33,13 @@ jobs:
           name: dist
           path: dist
       - name: Publish to PyPI
-        if: ${{ secrets.PYPI_API_TOKEN != '' }}
         env:
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
+          # If no PyPI token is provided, skip publishing instead of failing
+          if [ -z "${TWINE_PASSWORD:-}" ]; then
+            echo "No PYPI token provided; skipping upload."
+            exit 0
+          fi
           python -m pip install --upgrade pip twine
           python -m twine upload dist/* -u __token__ -p "$TWINE_PASSWORD"
