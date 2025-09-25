@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS links (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url TEXT NOT NULL UNIQUE,
+    first_seen TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    source TEXT,
+    message_id TEXT,
+    author TEXT
+);
